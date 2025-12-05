@@ -4,9 +4,9 @@ go 1.24.0
 
 // Kubernetes
 replace (
-	k8s.io/client-go => k8s.io/client-go v0.32.5
+	k8s.io/client-go => k8s.io/client-go v0.33.5
 	k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20240709000822-3c01b740850f
-	k8s.io/kubectl => k8s.io/kubectl v0.32.5
+	k8s.io/kubectl => k8s.io/kubectl v0.33.5
 	kubevirt.io/containerized-data-importer => kubevirt.io/containerized-data-importer v1.63.1
 	kubevirt.io/containerized-data-importer-api => kubevirt.io/containerized-data-importer-api v1.63.1
 )
@@ -27,17 +27,17 @@ require (
 	github.com/tektoncd/pipeline v1.5.0
 	go.uber.org/mock v0.5.1
 	go.uber.org/zap v1.27.0
-	k8s.io/api v0.32.8
-	k8s.io/apimachinery v0.32.8
+	k8s.io/api v0.33.5
+	k8s.io/apimachinery v0.33.5
 	k8s.io/cli-runtime v0.32.5
 	k8s.io/client-go v12.0.0+incompatible
 	k8s.io/utils v0.0.0-20241210054802-24370beab758
 	knative.dev/pkg v0.0.0-20250415155312-ed3e2158b883
-	kubevirt.io/api v1.6.2
-	kubevirt.io/client-go v1.6.2
+	kubevirt.io/api v1.7.0
+	kubevirt.io/client-go v1.7.0
 	kubevirt.io/containerdisks v0.0.0-20241001085853-ea2e8bf50322
 	kubevirt.io/containerized-data-importer v1.59.1
-	kubevirt.io/containerized-data-importer-api v1.60.3
+	kubevirt.io/containerized-data-importer-api v1.63.1
 	kubevirt.io/kubevirt v1.7.0
 	kubevirt.io/qe-tools v0.1.8
 	sigs.k8s.io/yaml v1.6.0
@@ -107,7 +107,7 @@ require (
 	github.com/openshift/custom-resource-status v1.1.2 // indirect
 	github.com/openzipkin/zipkin-go v0.4.3 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring v0.76.2 // indirect
+	github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring v0.80.1 // indirect
 	github.com/prometheus/client_golang v1.22.0 // indirect
 	github.com/prometheus/client_model v0.6.1 // indirect
 	github.com/prometheus/common v0.62.0 // indirect
@@ -149,8 +149,8 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/apiextensions-apiserver v0.32.8 // indirect
-	k8s.io/apiserver v0.32.8 // indirect
+	k8s.io/apiextensions-apiserver v0.33.5 // indirect
+	k8s.io/apiserver v0.33.5 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-aggregator v0.32.5 // indirect
 	k8s.io/kube-openapi v0.32.5 // indirect
@@ -159,5 +159,6 @@ require (
 	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect
 	sigs.k8s.io/kustomize/api v0.19.0 // indirect
 	sigs.k8s.io/kustomize/kyaml v0.19.0 // indirect
+	sigs.k8s.io/randfill v1.0.0 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.6.0 // indirect
 )
