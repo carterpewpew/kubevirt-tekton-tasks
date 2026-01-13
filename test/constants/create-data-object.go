@@ -16,6 +16,7 @@ type modifyDataObjectParams struct {
 	DeleteObjectName    string
 	DeleteObjectKind    string
 	DataObjectNamespace string
+	Timeout             string
 }
 
 var ModifyDataObjectParams = modifyDataObjectParams{
@@ -26,6 +27,7 @@ var ModifyDataObjectParams = modifyDataObjectParams{
 	DeleteObjectName:    "deleteObjectName",
 	DeleteObjectKind:    "deleteObjectKind",
 	DataObjectNamespace: "namespace",
+	Timeout:             "timeout",
 }
 
 type modifyDataObjectResults struct {

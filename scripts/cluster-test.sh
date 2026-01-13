@@ -10,7 +10,7 @@ RET_CODE=0
 
 DEBUG="${DEBUG:-false}"
 STORAGE_CLASS="${STORAGE_CLASS:-}"
-NUM_NODES="${NUM_NODES:-2}"
+NUM_NODES="${NUM_NODES:-3}"
 DEPLOY_NAMESPACE="${DEPLOY_NAMESPACE:-$(kubectl config view --minify --output 'jsonpath={..namespace}')}"
 ARTIFACT_DIR="${ARTIFACT_DIR:=dist}"
 ARTIFACT_DIR="$(readlink -m "${ARTIFACT_DIR}")"

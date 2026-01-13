@@ -6,6 +6,7 @@ import (
 
 	"github.com/kubevirt/kubevirt-tekton-tasks/modules/sharedtest/testconstants"
 	"github.com/kubevirt/kubevirt-tekton-tasks/modules/sharedtest/testobjects"
+	"github.com/kubevirt/kubevirt-tekton-tasks/test/constants"
 	. "github.com/kubevirt/kubevirt-tekton-tasks/test/constants"
 	"github.com/kubevirt/kubevirt-tekton-tasks/test/framework"
 	"github.com/kubevirt/kubevirt-tekton-tasks/test/runner"
@@ -225,8 +226,7 @@ var _ = Describe("Execute in VM / Cleanup VM", func() {
 			}),
 			Entry("not working VM", &testconfigs.ExecuteOrCleanupVMTestConfig{
 				TaskRunTestConfig: testconfigs.TaskRunTestConfig{
-
-					Timeout: Timeouts.QuickTaskRun,
+					Timeout: constants.Timeouts.TenSeconds,
 				},
 				TaskData: testconfigs.ExecuteOrCleanupVMTaskData{
 					VM:     testobjects.NewTestFedoraCloudVM("not-working-vm").WithMemory("5000Pi").Build(),
@@ -449,12 +449,10 @@ var _ = Describe("Execute in VM / Cleanup VM", func() {
 				ExpectSuccess: false,
 			},
 			TaskData: testconfigs.ExecuteOrCleanupVMTaskData{
-				VM:     testobjects.NewTestFedoraCloudVM("start-execute-too-low-timeout-stop-vm").WithCloudConfig(fedoraCloudConfig).Build(),
-				Secret: testobjects.NewTestSecret(sshConnectionInfo),
-				Script: sleepScript,
-				Timeout: &metav1.Duration{
-					Duration: 27 * time.Second,
-				},
+				VM:      testobjects.NewTestFedoraCloudVM("start-execute-too-low-timeout-stop-vm").WithCloudConfig(fedoraCloudConfig).Build(),
+				Secret:  testobjects.NewTestSecret(sshConnectionInfo),
+				Script:  sleepScript,
+				Timeout: constants.Timeouts.TenSeconds,
 			},
 		}),
 		// positive cases
