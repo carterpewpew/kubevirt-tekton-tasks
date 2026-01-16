@@ -2,7 +2,6 @@ package test
 
 import (
 	"context"
-	"time"
 
 	"github.com/kubevirt/kubevirt-tekton-tasks/modules/sharedtest/testobjects/datavolume"
 	"github.com/kubevirt/kubevirt-tekton-tasks/test/constants"
@@ -54,7 +53,7 @@ var _ = Describe("Run disk virt-customize / virt-sysprep", func() {
 			}),
 			Entry("invalid pvc", &testconfigs.DiskVirtLibguestfsTestConfig{
 				TaskRunTestConfig: testconfigs.TaskRunTestConfig{
-					Timeout: &metav1.Duration{time.Minute},
+					Timeout: constants.Timeouts.TenSeconds,
 				},
 				TaskData: testconfigs.DiskVirtLibguestfsTaskData{
 					PVCName: "illegal-test-pvc-1548748",
@@ -115,7 +114,7 @@ var _ = Describe("Run disk virt-customize / virt-sysprep", func() {
 				TaskData: testconfigs.DiskVirtLibguestfsTaskData{
 					Datavolume: datavolume.NewBlankDataVolume("basic-functionality").
 						WithSize(15, resource.Giga).
-						WithRegistrySource("docker://quay.io/containerdisks/centos-stream:9-latest").
+						WithRegistrySource("docker://quay.io/containerdisks/opensuse-leap:15.6").
 						Build(),
 					Commands:           customizeCommand,
 					LibguestfsTaskType: taskType,

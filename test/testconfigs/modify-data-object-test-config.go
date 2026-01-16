@@ -24,6 +24,7 @@ type ModifyDataObjectTaskData struct {
 	Namespace           TargetNamespace
 	dataObjectNamespace string
 	SetOwnerReference   string
+	Timeout             string
 }
 
 type ModifyDataObjectTestConfig struct {
@@ -172,6 +173,12 @@ func (c *ModifyDataObjectTestConfig) GetTaskRun() *pipev1.TaskRun {
 					Value: pipev1.ParamValue{
 						Type:      pipev1.ParamTypeString,
 						StringVal: c.TaskData.SetOwnerReference,
+					},
+				}, {
+					Name: ModifyDataObjectParams.Timeout,
+					Value: pipev1.ParamValue{
+						Type:      pipev1.ParamTypeString,
+						StringVal: c.TaskData.Timeout,
 					},
 				},
 			},
