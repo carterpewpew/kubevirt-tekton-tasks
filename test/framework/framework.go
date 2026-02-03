@@ -131,15 +131,27 @@ func (f *Framework) ManagePipelineRuns(pipelineRuns ...*pipev1.PipelineRun) *Fra
 }
 
 func (f *Framework) ManagePipelines(pipelines ...*pipev1.Pipeline) *Framework {
-	f.managedResources.pipelines = append(f.managedResources.pipelines, pipelines...)
+	for _, pipeline := range pipelines {
+		if pipeline == nil || pipeline.Name == "" {
+			continue
+		}
+		if pipeline.Namespace == "" {
+			pipeline.Namespace = f.DeployNamespace
+		}
+		f.managedResources.pipelines = append(f.managedResources.pipelines, pipeline)
+	}
 	return f
 }
 
 func (f *Framework) ManageDataVolumes(dataVolumes ...*cdiv1beta1.DataVolume) *Framework {
 	for _, dataVolume := range dataVolumes {
-		if dataVolume != nil && dataVolume.Name != "" && dataVolume.Namespace != "" {
-			f.managedResources.dataVolumes = append(f.managedResources.dataVolumes, dataVolume)
+		if dataVolume == nil || dataVolume.Name == "" {
+			continue
 		}
+		if dataVolume.Namespace == "" {
+			dataVolume.Namespace = f.DeployNamespace
+		}
+		f.managedResources.dataVolumes = append(f.managedResources.dataVolumes, dataVolume)
 	}
 	return f
 }
